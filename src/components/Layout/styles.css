@@ -1,0 +1,15 @@
+.appContentWrapper {
+    display: flex;
+    min-height: 100%;
+    flex-direction:row;
+    width: 100%;
+}
+
+.appContent {
+  display: flex;
+  /* flex-direction:column; */
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 100%;
+  flex:1;
+}

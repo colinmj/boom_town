@@ -11,13 +11,12 @@ const masonryOptions = {
   transitionDuration: 2000
 };
 
-const Items = ({list}) => (
+const Items = ({list}) => ( //******/
   <div 
   /* style={Styles.ListContainer} */
   className={'list-container'}>
     
     <Masonry
-    
     options={masonryOptions}
     elementType={'ul'}
     >

@@ -16,6 +16,8 @@ import muiTheme from './config/theme';
 
 import Layout from './components/Layout';
 import Login from './containers/Login';
+import NotFound from './containers/NotFound';
+import Profile from './containers/Profile';
 
 
 // injectTapEventPlugin();
@@ -26,24 +28,28 @@ import Items from "./containers/Items";
 const Boomtown = () => (
     <MuiThemeProvider muiTheme={muiTheme}>
       <Router>
+          <div>
+      <Route exact path="/login" component={Login}/>
         <Layout>
 
             {/* <Login /> */}
             
               <Switch>
-                  <Route exact path="/login" component={Login}/>
+                 
                   <Route exact path="/" component={Items}/> // this means at the route url
 
-                  {/* <Route exact path="/profile/:userid" component={} />
-                  <Route exact path="/share" component={} /> */}
+                  <Route exact path="/profile" component={Profile} />
+                  {/* <Route exact path="/share" component={} />  */}
+                  <Route exact path="*" component={NotFound}/>
 
 
-                  </Switch>
+             </Switch>
                 
 
             
         </Layout>
-    </Router>
+        </div>
+     </Router>
     </MuiThemeProvider>
 
 );

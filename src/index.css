@@ -92,15 +92,21 @@ body {
   }
 
   .header-logo {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     margin-left: 15%;
+    margin-top: 40px;
   }
 
+  /*search field*/
   .field {
       margin-bottom: 20px;
-      margin-right: 50px;
-      width: 70% !important;
+      margin-right: 150px;
+      width: 200px !important;
+      position: absolute !important;
+      left: 70px !important;
+      bottom: 0px !important;
+     
       /* text-decoration: underline; */
       /* margin-left: 20px; */
       
@@ -113,9 +119,10 @@ body {
       
   }
   .profile-button{
-      margin-bottom: 10px;
+      margin: 0 10px 10px 100px;
+      /* margin-bottom: 10px;
       margin-left: 100px;
-      margin-right: 10px;
+      margin-right: 10px; */
      
   }
 
@@ -124,11 +131,22 @@ body {
     flex-direction: column;
     /* flex-wrap: wrap; */
     height: 120px !important;
+    position: relative;
     
+}
+
+.button-container {
+    min-width: 300px;
 }
   
   
   @media only screen and (min-width: 600px){
+
+    .header-logo {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 25px;
+    }
 
     .main-tool {
         flex-direction: row;
@@ -136,6 +154,7 @@ body {
     }
 
     .field {
+        position: static;
         margin-right: 0;
         margin-left: 20px;
         min-width: 250px;
@@ -147,17 +166,25 @@ body {
      margin: 1%;
    }
 
+   .button-container{
+       min-width: 300px;
+       /* max-width: 300px; */
+       /* padding-right: 10px; */
+   }
+
    .login-button {
-       margin-left: 10px;
+       margin: 0 8px 0 0;
+       /* margin-left: 0px;
        margin-bottom: 0;
-       margin-right: 50px;
+       margin-right: 8px; */
        margin-top: 0 !important;
+       
    }
 
    .profile-button{
        margin-bottom: 0;
        margin-top: 0;
-       margin-left: 0;
+       margin-left: 80px;
    }
     
   }
@@ -166,5 +193,11 @@ body {
     .single-item {
       width: 30.33%;
       margin: 1.5%;
+    }
+    .button-container {
+        min-width: 150px;
+    }
+    .login-button {
+        margin-right: 0;
     }
   }

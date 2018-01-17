@@ -1,24 +1,3 @@
-// import React, {Component} from 'react';
-
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Switch,
-//   Link
-//   } from 'react-router-dom';
-
-// export default class HeaderBar extends Component {
-//   render() {
-//     return <div> 
-//       <ul>
-//         <li><Link to='/login'>Login</Link></li>
-//         <li><Link to='/'>Home</Link></li>
-//       </ul>
-     
-//        </div>;
-//   }
-// }
-
 import React from 'react';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
@@ -74,7 +53,7 @@ export default class ToolbarExamplesSimple extends React.Component {
           {/* <ToolbarSeparator /> */}
 
           <div className={'button-container'}>
-          <Link to='/'>
+          <Link to='/profile'>
             <RaisedButton 
             className={'profile-button'} label="My Profile" primary={true}
            

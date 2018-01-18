@@ -72,6 +72,41 @@ body {
     height: 100%;
 }
 
+/*profile page*/
+
+.user-card {
+    position: relative !important;
+    background-color: red !important;
+    height: 300px;
+    margin: 20px 0;
+    display: flex !important;
+    justify-content: center;
+}
+
+.user-name {
+    font-size: 40px;
+}
+
+.grav {
+    position: absolute !important;
+    left: 250px !important;
+    bottom: 40px !important;
+    height: 100px;
+    width: 100px;
+}
+
+.share {
+    margin-top: 50px;
+}
+
+.share p {
+    padding-bottom: 30px;
+}
+
+
+
+/* home page */
+
 .page {
     display: flex;
     flex-direction: column;
@@ -89,6 +124,7 @@ body {
   
   .single-item {
     width: 100%;
+    list-style: none;
   }
 
   .header-logo {

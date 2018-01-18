@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import Masonry from 'react-masonry-component';
@@ -11,7 +11,7 @@ const masonryOptions = {
   transitionDuration: 2000
 };
 
-const Items = ({list}) => ( //******/
+const Items = ({list, owner}) => ( //******/
   <div 
   /* style={Styles.ListContainer} */
   className={'list-container'}>
@@ -24,7 +24,7 @@ const Items = ({list}) => ( //******/
      /* style={Styles.SingleItem} */
      key={item.id}
      className={'single-item'}>
-    <ItemCard style={Styles.ItemCard} item={item} key={item.id}/></li>)}
+    <ItemCard style={Styles.ItemCard} item={item} owner={item.itemowner.id} key={item.id}/></li>)}
     </Masonry>
   </div>
 );

@@ -25,10 +25,12 @@ import Profile from './containers/Profile';
 // import ItemsContainer from './containers/Items';
 import Items from "./containers/Items";
 
+
+
 const Boomtown = () => (
     <MuiThemeProvider muiTheme={muiTheme}>
-      <Router>
-          <div>
+  <Router>
+    <div>
       <Route exact path="/login" component={Login}/>
         <Layout>
 
@@ -38,7 +40,7 @@ const Boomtown = () => (
                  
                   <Route exact path="/" component={Items}/> // this means at the route url
 
-                  <Route exact path="/profile" component={Profile} />
+                  <Route exact path="/profile/:id" component={Profile} />
                   {/* <Route exact path="/share" component={} />  */}
                   <Route exact path="*" component={NotFound}/>
 
@@ -48,8 +50,8 @@ const Boomtown = () => (
 
             
         </Layout>
-        </div>
-     </Router>
+      </div>
+    </Router>
     </MuiThemeProvider>
 
 );

@@ -56,7 +56,6 @@ export default class ToolbarExamplesSimple extends React.Component {
           <Link to='/profile'>
             <RaisedButton 
             className={'profile-button'} label="My Profile" primary={true}
-           
             />
           </Link>
 

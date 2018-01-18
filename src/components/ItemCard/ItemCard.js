@@ -1,20 +1,31 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import PropTypes from 'prop-types';
 import Styles from './styles.js';
 import moment from 'moment';
 import Gravatar from 'react-gravatar';
+import ItemContainer from '../../containers/Items'
 
-const ItemCard = ({item}) => (
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+  } from 'react-router-dom';
+
+const ItemCard = ({item, owner}) => (
   <div key={item.id}>
     <Card>
     
+      <Link to={`/profile/${owner}`}>
       <CardHeader
         title={item.itemowner.fullname}
         subtitle={moment(item.created).fromNow()}
         avatar={<Gravatar email={item.itemowner.email}
        />}
         />
+      </Link>
+        
         
       <CardMedia>
         <img src={item.imageurl} alt="image" />
@@ -25,12 +36,15 @@ const ItemCard = ({item}) => (
       />
       <CardText>{item.description}</CardText>
       <CardActions>
+        { item.available ?
         <button className="borrow-button" label="Borrow">
           Borrow
         </button>
-        <button className="borrow-button" label="rm -fr *">
-          rm -fr *
-        </button>
+        : <p>{item.borrower.fullname}</p>
+        
+         }
+         
+       
       </CardActions>
     </Card>
   </div>
@@ -63,26 +77,3 @@ export default ItemCard;
 
 
 
-// import React, {Component} from 'React';
-
-// export default class ItemCard extends Component {
-//   render() {
-//     return (
-//       <div> 
-//       <ul>
-//       {this.props.list.map(item => {
-//         return (
-//            <div key={item.id}>
-//              <p>{item.title}</p>
-//              <p>{item.description}</p>
-//              <img src={item.imageurl} alt={item.description}/>
-//            </div>
-           
-        
-//         );
-//       })}
-//       </ul>
-//      </div>
-//     )
-//   }
-// }

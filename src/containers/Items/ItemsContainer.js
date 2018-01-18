@@ -17,9 +17,6 @@ export default class ItemsContainer extends Component {
     const items = fetch(ITEMS_URL).then(r => r.json());
     const users = fetch(USERS_URL).then(r => r.json());
 
-    
-
-
     Promise.all([items, users]).then((response) => {
      
 
@@ -27,16 +24,12 @@ export default class ItemsContainer extends Component {
 
      const combined = itemList.map(item => {
        item.itemowner = userList.find(user => user.id === item.itemowner);
+       item.borrower ? item.borrower = userList.find(user => user.id === item.borrower) : 'error';
        return item;
      });
 
     this.setState({ items: combined});
      console.log(combined);
-
-     const filtered = combined.map((tag) => {
-       const tags = tag.tags;
-       
-     })
      
     })
 

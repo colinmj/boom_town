@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 
 // import ItemsCard from '../../components/ItemCard';
 
-const ITEMS_URL = 'http://localhost:4000/items';
-const USERS_URL = 'http://localhost:4000/users';
+const ITEMS_URL = 'http://localhost:3001/items';
+const USERS_URL = 'http://localhost:3001/users';
 
 export default class ProfileContainer extends Component {
   constructor(){

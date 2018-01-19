@@ -10,29 +10,37 @@ import {connect} from 'react-redux';
 
 
 
+
 class ProfileContainer extends Component {
   static propTypes = {};
   constructor(props){
     super(props);
     this.state = {
-      userId: this.props.match.params.id
+      userId: this.props.match.params.id,
+      borrow: this.props.borrowed
     }
   }
 
   componentDidMount(){
-   this.props.dispatch(profileItemsAndUsers(this.state.userId));
+   this.props.dispatch(profileItemsAndUsers(this.state.userId, this.state.borrow));
   }
+
+  
+
   
   render(){
     // if (this.props.isLoading) return <p>Loading</p>;
     return <Profile 
-    list={this.props.items}/>;
+    list={this.props.items}
+    borrowed={this.props.borrowed}/>;
+    
   }
 }
 
 const mapStateToProps = (state) => ({
  isLoading: state.profile.isLoading,
  items: state.profile.items,
+ borrowed: state.profile.borrowed,
  error: state.profile.error
 });
 

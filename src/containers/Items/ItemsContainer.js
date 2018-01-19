@@ -14,7 +14,7 @@ class ItemsContainer extends Component {
   }
   
   render(){
-    // if (this.props.isLoading) return <p>Loading</p>;
+    if (this.props.isLoading) return <p>Loading</p>;
     return <Items 
     list={this.props.items}/>;
   }

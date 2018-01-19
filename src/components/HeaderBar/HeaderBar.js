@@ -15,7 +15,9 @@ import {
   Link
   } from 'react-router-dom';
 
-export default class ToolbarExamplesSimple extends React.Component {
+  import {connect} from 'redux';
+
+ export default class ToolbarExamplesSimple extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,13 +39,13 @@ export default class ToolbarExamplesSimple extends React.Component {
           {/* <DropDownMenu  value={undefined} onChange={this.handleChange}> */}
             <SelectField className={'field'} floatingLabelText={'Filter By Tag'}>
             
-              <MenuItem value={1} primaryText="All Broadcasts" />
-              <MenuItem value={2} primaryText="All Voice" />
-              <MenuItem value={3} primaryText="stuff" />
-              <MenuItem value={4} primaryText="Complete Voice" />
-              <MenuItem value={5} primaryText="Complete Text" />
-              <MenuItem value={6} primaryText="Active Voice" />
-              <MenuItem value={7} primaryText="Active Text" />
+              <MenuItem value={1} primaryText="Electronics" />
+              <MenuItem value={2} primaryText="Musical Instruments" />
+              <MenuItem value={3} primaryText="Household Items" />
+              <MenuItem value={4} primaryText="Physical Media" />
+              <MenuItem value={5} primaryText="Recreational Equipment" />
+              <MenuItem value={6} primaryText="Sporting Goods" />
+              <MenuItem value={7} primaryText="Tools" />
           </SelectField>
           {/* </DropDownMenu> */}
         </ToolbarGroup>
@@ -53,7 +55,7 @@ export default class ToolbarExamplesSimple extends React.Component {
           {/* <ToolbarSeparator /> */}
 
           <div className={'button-container'}>
-          <Link to='/profile'>
+          <Link to='/profile/eEvh1WUF5nb5eeUksUQb3Ph0kOU2' >
             <RaisedButton 
             className={'profile-button'} label="My Profile" primary={true}
             />
@@ -66,21 +68,9 @@ export default class ToolbarExamplesSimple extends React.Component {
              <RaisedButton className={'login-button'} label="Login" backgroundColor='black' labelColor="#fff"/>
           </Link>
         </div>
-
-          
-
-          {/* <IconMenu
-            iconButtonElement={
-              <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
-              </IconButton>
-            }
-          > */}
-            {/* <MenuItem primaryText="Download" />
-            <MenuItem primaryText="More Info" />
-          </IconMenu> */}
         </ToolbarGroup>
       </Toolbar>
     );
   }
 }
+

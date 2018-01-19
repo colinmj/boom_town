@@ -7,7 +7,7 @@ import Gravatar from 'react-gravatar';
 // import ItemsContainer from './Items';
 
 
-const Profile = ({list}) => { //******/
+const Profile = ({list, borrowed}) => { //******/
 
   //  list[0] ? console.log(list[0].itemowner.fullname) : console.log('');
 
@@ -27,12 +27,12 @@ const Profile = ({list}) => { //******/
           <p> {list[0] && list[0].itemowner.bio}</p>
 
           <div className={'share'}>
-            <p> x items shared</p>
-            <p> x items borrowed</p>
+            <p> {list.length} items shared</p>
+            <p> {borrowed.length} items borrowed</p>
           </div>
         </div>
 
-          <Gravatar className={'grav'} email={list[0] && list[0].itemowner.email}/>
+          <Gravatar size={100} className={'grav'} email={list[0] && list[0].itemowner.email}/>
           
         </Card>
       </div>
@@ -54,7 +54,8 @@ const Profile = ({list}) => { //******/
 }
 
 Profile.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  borrowed: PropTypes.array.isRequired
 }
  
 

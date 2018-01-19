@@ -89,10 +89,10 @@ body {
 
 .grav {
     position: absolute !important;
-    left: 250px !important;
+    left: 60% !important;
     bottom: 40px !important;
-    height: 100px;
-    width: 100px;
+    /* height: 100px;
+    width: 100px; */
 }
 
 .share {

@@ -8,9 +8,11 @@ const GET_PROFILE_ERROR = 'GET_PROFILE_ERROR';
 const getProfileLoading = () => ({
  type: GET_PROFILE_LOADING
 })
-const getProfile = (items) => ({
+const getProfile = (items, borrowed) => ({
  type: GET_PROFILE,
- payload: items
+ payload: items,
+ borrowed: borrowed
+ 
 })
 const getProfileError = (error) => ({
  type: GET_PROFILE_ERROR,
@@ -22,13 +24,25 @@ const ITEMS_URL = 'http://localhost:3001/items';
 const USERS_URL = 'http://localhost:3001/users/';
 const items = fetch(ITEMS_URL).then(r => r.json());
 const users = fetch(USERS_URL).then(r => r.json());
-// let ownerHash = this.state.match.params.id
+const borrowers = fetch(ITEMS_URL).then(r => r.json());
+
+
+
 
 //async action creator, curried function
-export const profileItemsAndUsers = (userId) => dispatch => {
+export const profileItemsAndUsers = (userId, borrowed) => dispatch => {
   dispatch(getProfileLoading());
-return Promise.all([items, users]).then((response) => {
-    const [itemList, userList] = response;
+return Promise.all([items, users, borrowers]).then((response) => {
+    const [itemList, userList, borrowList] = response;
+
+    const borrowed = borrowList.filter((borrow) => {
+      if (borrow.borrower === userId){
+        return borrow;
+      }
+    })
+      
+
+    
 
     const combined = itemList.map(item => {
       item.itemowner = userList.find(user => user.id === item.itemowner);
@@ -36,22 +50,26 @@ return Promise.all([items, users]).then((response) => {
       return item;
     });
 
+    // console.log(combined);
+
     const filtered = combined.filter((item)=> {
-      if (item.itemowner.id === userId){
-        return item;
+    if (item.itemowner.id === userId){
+    return item;
       } 
-     
     });
 
-    
+  dispatch(getProfile(filtered, borrowed));
+}).catch( error => dispatch(getProfileError(error.message)))
 
-    dispatch(getProfile(filtered));
-  }).catch( error => dispatch(getProfileError(error.message)))
+
 };
+
+
 
 export default (state = {
   isLoading: false,
   items: [],
+  borrowed: [],
   error: ''
 }, action ) => {
   switch(action.type) {
@@ -67,6 +85,7 @@ export default (state = {
         ...state,
         isLoading: false,
         items: action.payload,
+        borrowed: action.borrowed,
         error: ''
       }
 

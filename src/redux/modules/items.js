@@ -1,27 +1,27 @@
 //ACTIONS
 
-const GET_ITEMS_LOADING = 'GET_ITEMS_LOADING';
-const GET_ITEMS = 'GET_ITEMS';
-const GET_ITEMS_ERROR = 'GET_ITEMS_ERROR';
+ const GET_ITEMS_LOADING = 'GET_ITEMS_LOADING';
+ const GET_ITEMS = 'GET_ITEMS';
+ const GET_ITEMS_ERROR = 'GET_ITEMS_ERROR';
 
 //ACTION CREATORS
-const getItemsLoading = () => ({
+ const getItemsLoading = () => ({
   type: GET_ITEMS_LOADING
 })
-const getItems = (items) => ({
+ const getItems = (items) => ({
   type: GET_ITEMS,
   payload: items
 })
-const getItemsError = (error) => ({
+ const getItemsError = (error) => ({
   type: GET_ITEMS_ERROR,
   payload: error
 })
 
-const ITEMS_URL = 'http://localhost:3001/items';
-const USERS_URL = 'http://localhost:3001/users/';
+ const ITEMS_URL = 'http://localhost:3001/items';
+ const USERS_URL = 'http://localhost:3001/users/';
 
-const items = fetch(ITEMS_URL).then(r => r.json());
-const users = fetch(USERS_URL).then(r => r.json());
+ const items = fetch(ITEMS_URL).then(r => r.json());
+ const users = fetch(USERS_URL).then(r => r.json());
 
 //async action creator, curried function
 export const fetchItemsAndUsers = () => dispatch => {

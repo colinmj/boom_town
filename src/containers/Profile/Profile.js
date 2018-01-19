@@ -9,7 +9,7 @@ import Gravatar from 'react-gravatar';
 
 const Profile = ({list}) => { //******/
 
-   list[0] ? console.log(list[0].itemowner.fullname) : console.log('');
+  //  list[0] ? console.log(list[0].itemowner.fullname) : console.log('');
 
   return(
     <div className={'user-profile'}>

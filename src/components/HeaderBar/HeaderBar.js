@@ -8,6 +8,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import SelectField from 'material-ui/SelectField';
+import {filterItems} from '../../redux/modules/items';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,20 +16,26 @@ import {
   Link
   } from 'react-router-dom';
 
-  import {connect} from 'redux';
+  import {connect} from 'react-redux';
 
- export default class ToolbarExamplesSimple extends React.Component {
-
-  constructor(props) {
+  class HeaderBar extends React.Component { //*
+    constructor(props) {
     super(props);
     this.state = {
-      value: 3,
-    };
+      values: []
+    }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (event, index, value) => this.setState({value});
+  
+
+  handleChange = (event, index, values) => {
+    this.props.dispatch(filterItems(values, this.props.items))
+    this.setState({values});
+  }
 
   render() {
+    const {values} = this.state;
     return (
       <Toolbar className={'main-tool'} 
         style={{backgroundColor: '#fff'}}>
@@ -37,15 +44,21 @@ import {
             <img className={'header-logo'} src={require("../../images/boomtown-logo.svg")}/>
           </a>
           {/* <DropDownMenu  value={undefined} onChange={this.handleChange}> */}
-            <SelectField className={'field'} floatingLabelText={'Filter By Tag'}>
+            <SelectField 
+            className={'field'} 
+            floatingLabelText={'Filter By Tag'}
+            onChange={this.handleChange}
+            multiple={true}
+            value={values}
+                >
             
-              <MenuItem value={1} primaryText="Electronics" />
-              <MenuItem value={2} primaryText="Musical Instruments" />
-              <MenuItem value={3} primaryText="Household Items" />
-              <MenuItem value={4} primaryText="Physical Media" />
-              <MenuItem value={5} primaryText="Recreational Equipment" />
-              <MenuItem value={6} primaryText="Sporting Goods" />
-              <MenuItem value={7} primaryText="Tools" />
+              <MenuItem  insetChildren checked={values && values.indexOf('Electronics') > -1} value={"Electronics"} primaryText={"Electronics"} />
+              <MenuItem  insetChildren checked={values && values.indexOf('Musical Instruments') > -1} value={"Musical Instruments"} primaryText={"Musical Instruments"}/>
+              <MenuItem  insetChildren checked={values && values.indexOf('Household Items') > -1} value={"Household Items"} primaryText={"Household Items"}/>
+              <MenuItem  insetChildren checked={values && values.indexOf("Physical Media") > -1} value={"Physical Media"} primaryText={"Physical Media"}/>
+              <MenuItem  insetChildren checked={values && values.indexOf('Recreational Equipment') > -1} value={"Recreational Equipment"}primaryText={"Recreational Equipment"} />
+              <MenuItem  insetChildren checked={values && values.indexOf('Sporting Goods') > -1} value={"Sporting Goods"} primaryText={"Sporting Goods"}/>
+              <MenuItem  insetChildren checked={values && values.indexOf('Tools') > -1} value={"Tools"} primaryText={"Tools"}/>
           </SelectField>
           {/* </DropDownMenu> */}
         </ToolbarGroup>
@@ -73,4 +86,14 @@ import {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  isLoading: state.items.isLoading,
+  items: state.items.items,
+  tags: state.items.tags,
+  itemsFilter: state.items.itemsFilter,
+  error: state.items.error
+ });
+
+ export default connect(mapStateToProps)(HeaderBar);
 

@@ -3,6 +3,7 @@ import Items from './Items';
 import PropTypes from 'prop-types';
 import { fetchItemsAndUsers } from '../../redux/modules/items'
 import {connect} from 'react-redux';
+// import HeaderBar from '../../components/HeaderBar';
 
 
 
@@ -16,14 +17,15 @@ class ItemsContainer extends Component {
   render(){
     if (this.props.isLoading) return <p>Loading</p>;
     return <Items 
-    list={this.props.items}/>;
+    list={this.props.itemsFilter}/>;
   }
 }
 
 const mapStateToProps = (state) => ({
  isLoading: state.items.isLoading,
  items: state.items.items,
- error: state.items.error
+ error: state.items.error,
+ itemsFilter: state.items.itemsFilter,
 });
 
 export default connect(mapStateToProps)(ItemsContainer);

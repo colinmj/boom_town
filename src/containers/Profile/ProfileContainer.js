@@ -29,7 +29,7 @@ class ProfileContainer extends Component {
 
   
   render(){
-    // if (this.props.isLoading) return <p>Loading</p>;
+    if (this.props.isLoading) return <p>Loading</p>;
     return <Profile 
     list={this.props.items}
     borrowed={this.props.borrowed}/>;

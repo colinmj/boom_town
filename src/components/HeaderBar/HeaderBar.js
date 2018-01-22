@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import SelectField from 'material-ui/SelectField';
 import {filterItems} from '../../redux/modules/items';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -45,8 +46,7 @@ import {
             <img className={'header-logo'} src={require("../../images/boomtown-logo.svg")}/>
           </a>
           {/* <DropDownMenu  value={undefined} onChange={this.handleChange}> */}
-            
-            
+           
             <SelectField 
             className={'field'} 
             floatingLabelText={'Filter By Tag'}

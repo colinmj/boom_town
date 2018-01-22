@@ -72,6 +72,12 @@ body {
     height: 100%;
 }
 
+/* footer */
+
+.foot-text {
+    text-align: center;
+}
+
 /*profile page*/
 
 .user-card {

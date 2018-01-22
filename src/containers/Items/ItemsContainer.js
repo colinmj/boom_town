@@ -3,7 +3,7 @@ import Items from './Items';
 import PropTypes from 'prop-types';
 import { fetchItemsAndUsers } from '../../redux/modules/items'
 import {connect} from 'react-redux';
-// import HeaderBar from '../../components/HeaderBar';
+
 
 
 

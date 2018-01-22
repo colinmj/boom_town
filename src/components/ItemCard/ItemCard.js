@@ -27,7 +27,11 @@ const ItemCard = ({item, owner}) => (
       </Link>
         
         
-      <CardMedia>
+      <CardMedia
+      overlay={
+        item.borrower ? `Borrowed by ${item.borrower.fullname}`
+        : null
+      }>
         <img src={item.imageurl} alt="image" />
       </CardMedia>
       <CardTitle
@@ -40,7 +44,7 @@ const ItemCard = ({item, owner}) => (
         <button className="borrow-button" label="Borrow">
           Borrow
         </button>
-        : <p>{item.borrower.fullname}</p>
+        : null
         
          }
          

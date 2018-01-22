@@ -17,6 +17,7 @@ import {
   } from 'react-router-dom';
 
   import {connect} from 'react-redux';
+  
 
   class HeaderBar extends React.Component { //*
     constructor(props) {
@@ -44,12 +45,14 @@ import {
             <img className={'header-logo'} src={require("../../images/boomtown-logo.svg")}/>
           </a>
           {/* <DropDownMenu  value={undefined} onChange={this.handleChange}> */}
+            
+            
             <SelectField 
             className={'field'} 
             floatingLabelText={'Filter By Tag'}
             onChange={this.handleChange}
             multiple={true}
-            value={values}
+            value={this.props.tags}
                 >
             
               <MenuItem  insetChildren checked={values && values.indexOf('Electronics') > -1} value={"Electronics"} primaryText={"Electronics"} />
@@ -60,6 +63,7 @@ import {
               <MenuItem  insetChildren checked={values && values.indexOf('Sporting Goods') > -1} value={"Sporting Goods"} primaryText={"Sporting Goods"}/>
               <MenuItem  insetChildren checked={values && values.indexOf('Tools') > -1} value={"Tools"} primaryText={"Tools"}/>
           </SelectField>
+            
           {/* </DropDownMenu> */}
         </ToolbarGroup>
         <ToolbarGroup>

@@ -22,17 +22,21 @@ const Profile = ({list, borrowed}) => { //******/
           avatar={<Gravatar email={list[0] && list[0].itemowner.email}
        />}
        /> */}
+
+       <div className={'container'}>
          <div className={'flex-container'}>
           <h1 className={'user-name'}> {list[0] && list[0].itemowner.fullname}</h1>
           <p> {list[0] && list[0].itemowner.bio}</p>
+        </div>
 
           <div className={'share'}>
             <p> {list.length} items shared</p>
             <p> {borrowed.length} items borrowed</p>
           </div>
         </div>
+        {/* </div> */}
 
-          <Gravatar size={100} className={'grav'} email={list[0] && list[0].itemowner.email}/>
+          <Gravatar size={200} className={'grav'} email={list[0] && list[0].itemowner.email}/>
           
         </Card>
       </div>

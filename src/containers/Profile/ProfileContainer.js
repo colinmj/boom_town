@@ -23,7 +23,12 @@ class ProfileContainer extends Component {
 
   componentDidMount(){
    this.props.dispatch(profileItemsAndUsers(this.state.userId, this.state.borrow));
+   
   }
+
+ 
+
+  
 
   
 
@@ -40,9 +45,11 @@ class ProfileContainer extends Component {
 const mapStateToProps = (state) => ({
  isLoading: state.profile.isLoading,
  items: state.profile.items,
- borrowed: state.profile.borrowed,
+ borrowed: state.profile.borrowed, // what is going on hereeeeee
  error: state.profile.error
 });
+
+
 
 export default connect(mapStateToProps)(ProfileContainer);
 

@@ -76,32 +76,58 @@ body {
 
 .user-card {
     position: relative !important;
-    background-color: red !important;
-    height: 300px;
-    margin: 20px 0;
+    
+    height: 350px;
+    margin: 20px 1%;
+    padding-left: 30px;
     display: flex !important;
-    justify-content: center;
+    /* justify-content: center; */
+    
+}
+
+
+
+.flex-container {
+    /* width: 80% !important; */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.flex-container p {
+    padding-top: 10px !important;
+}
+.flex-container h1 {
+    width: 90%;
 }
 
 .user-name {
     font-size: 40px;
+    width: 100%;
 }
 
 .grav {
+    border-radius: 50% !important;
     position: absolute !important;
     left: 60% !important;
     bottom: 40px !important;
+    max-height: 100px !important;
+    max-width: 100px !important;
     /* height: 100px;
     width: 100px; */
 }
 
 .share {
-    margin-top: 50px;
+    height: 50px !important;
+    margin-top: 50px !important;
+
 }
 
-.share p {
-    padding-bottom: 30px;
-}
+
+
+/* .share p {
+    margin-top: 40px;
+} */
 
 
 
@@ -174,6 +200,21 @@ body {
 .button-container {
     min-width: 300px;
 }
+
+@media only screen and (min-width: 450px){
+    .user-name {
+        width: 100% !important;
+    }
+    .share p {
+    margin-top: 40px;
+}
+
+.share {
+    margin-top: 80px !important;
+
+    
+}
+}
   
   
   @media only screen and (min-width: 600px){
@@ -236,4 +277,38 @@ body {
     .login-button {
         margin-right: 0;
     }
+
+    .user-card {
+        margin: 50px 10%;
+        height: 250px;
+        flex-direction: row !important;
+    }
+    .user-name {
+        width: 100% !important;
+    }
+    .grav {
+        max-width: 200px !important;
+        max-height: 200px !important;
+        bottom: 25px !important;
+        left: 70% !important;
+    }
+
+    .flex-container {
+        margin-top: 20px;
+        
+    }
+
+    .container {
+        display: flex !important;
+    }
+
+    .share {
+        margin-left: 40px;
+        margin-top: 40px !important;
+    }
+    .share p {
+        margin-top: 0 !important;
+    }
+    
+   
   }

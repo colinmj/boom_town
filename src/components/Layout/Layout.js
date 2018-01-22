@@ -4,18 +4,28 @@ import HeaderBar from '../HeaderBar';
 import Footer from '../Footer';
 
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+    } from 'react-router-dom';
+
+
 
 // import './styles.css';
 
 const Layout = ({ children }) => (
     <div className="appContentWrapper">
         <div className="appHeader">
-            <HeaderBar/>
+           {/* <HeaderBar/> */}
+           <Route exact path='/' component={HeaderBar}/>
+           <Route exact path ='/profile/:id' component={HeaderBar}/>
         </div>
         <div className="appContent">
             {children}
         </div>
-        <Footer />
+        <Route exact path='/' component={Footer}/>
+        <Route exact path ='/profile/:id' component={Footer}/>
     </div>
 );
 

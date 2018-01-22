@@ -72,6 +72,12 @@ body {
     height: 100%;
 }
 
+/* overlay */
+.overlay {
+    color:gray !important;
+    padding-left: 10px;
+}
+
 /* footer */
 
 .foot-text {
@@ -285,6 +291,7 @@ body {
     }
 
     .user-card {
+        max-width: 850px !important;
         margin: 50px 10%;
         height: 250px;
         flex-direction: row !important;

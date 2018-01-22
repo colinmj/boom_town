@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import SelectField from 'material-ui/SelectField';
 import {filterItems} from '../../redux/modules/items';
+import Select from '../Select';
 
 import {
   BrowserRouter as Router,
@@ -47,6 +48,10 @@ import {
           </a>
           {/* <DropDownMenu  value={undefined} onChange={this.handleChange}> */}
            
+            {/* <Route exact path='/' component={Select}/> */}
+
+           
+            
             <SelectField 
             className={'field'} 
             floatingLabelText={'Filter By Tag'}
@@ -63,6 +68,8 @@ import {
               <MenuItem  insetChildren checked={values && values.indexOf('Sporting Goods') > -1} value={"Sporting Goods"} primaryText={"Sporting Goods"}/>
               <MenuItem  insetChildren checked={values && values.indexOf('Tools') > -1} value={"Tools"} primaryText={"Tools"}/>
           </SelectField>
+            
+           
             
           {/* </DropDownMenu> */}
         </ToolbarGroup>

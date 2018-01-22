@@ -5,6 +5,7 @@ import Styles from './styles.js';
 import moment from 'moment';
 import Gravatar from 'react-gravatar';
 import ItemContainer from '../../containers/Items'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import {
   BrowserRouter as Router,
@@ -29,7 +30,7 @@ const ItemCard = ({item, owner}) => (
         
       <CardMedia
       overlay={
-        item.borrower ? `Borrowed by ${item.borrower.fullname}`
+        item.borrower ? <p className={'overlay'}>Borrowed by {item.borrower.fullname}</p>
         : null
       }>
         <img src={item.imageurl} alt="image" />
@@ -41,10 +42,8 @@ const ItemCard = ({item, owner}) => (
       <CardText>{item.description}</CardText>
       <CardActions>
         { item.available ?
-        <button className="borrow-button" label="Borrow">
-          Borrow
-        </button>
-        : null
+        <RaisedButton className="borrow-button" label="Borrow" secondary={true}/>
+           : null
         
          }
          

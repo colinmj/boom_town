@@ -16,12 +16,6 @@ const Profile = ({list, borrowed}) => { //******/
 
       <div className={'user-card-container'}>
         <Card className={'user-card'}>
-          {/* <CardHeader
-          title={list[0] && list[0].itemowner.fullname}
-          subtitle={list[0] && list[0].itemowner.bio}
-          avatar={<Gravatar email={list[0] && list[0].itemowner.email}
-       />}
-       /> */}
 
        <div className={'container'}>
          <div className={'flex-container'}>

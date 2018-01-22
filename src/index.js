@@ -37,7 +37,7 @@ const Boomtown = () => (
 
   
     <div> 
-      <Route exact path="/login" component={Login}/>
+    
       
         <Layout>
        
@@ -45,9 +45,8 @@ const Boomtown = () => (
             {/* <Login /> */}
             
               <Switch>
-                 
+                  <Route exact path="/login" component={Login}/>
                   <Route exact path="/" component={Items}/> // this means at the route url
-
                   <Route exact path="/profile/:id" component={Profile} />
                   {/* <Route exact path="/share" component={} />  */}
                   <Route exact path="*" component={NotFound}/>
@@ -58,6 +57,7 @@ const Boomtown = () => (
 
             
         </Layout>
+        
       </div>
     </Router>
   </Provider>

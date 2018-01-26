@@ -24,21 +24,20 @@ import {
   class HeaderBar extends React.Component { //*
     constructor(props) {
     super(props);
-    this.state = {
-      values: []
-    }
+   
     this.handleChange = this.handleChange.bind(this);
   }
 
   
 
   handleChange = (event, index, values) => {
-    this.props.dispatch(filterItems(values, this.props.items))
-    this.setState({values});
+   this.props.dispatch(filterItems(values));
+    console.log(values);
+    
   }
 
   render() {
-    const {values} = this.state;
+    
     return (
       <Toolbar className={'main-tool'} 
         style={{backgroundColor: '#fff'}}>
@@ -57,16 +56,20 @@ import {
             floatingLabelText={'Filter By Tag'}
             onChange={this.handleChange}
             multiple={true}
-            value={this.props.tags}
-                >
+            value={this.props.selectedTags}>
+
             
-              <MenuItem  insetChildren checked={values && values.indexOf('Electronics') > -1} value={"Electronics"} primaryText={"Electronics"} />
-              <MenuItem  insetChildren checked={values && values.indexOf('Musical Instruments') > -1} value={"Musical Instruments"} primaryText={"Musical Instruments"}/>
-              <MenuItem  insetChildren checked={values && values.indexOf('Household Items') > -1} value={"Household Items"} primaryText={"Household Items"}/>
-              <MenuItem  insetChildren checked={values && values.indexOf("Physical Media") > -1} value={"Physical Media"} primaryText={"Physical Media"}/>
-              <MenuItem  insetChildren checked={values && values.indexOf('Recreational Equipment') > -1} value={"Recreational Equipment"}primaryText={"Recreational Equipment"} />
-              <MenuItem  insetChildren checked={values && values.indexOf('Sporting Goods') > -1} value={"Sporting Goods"} primaryText={"Sporting Goods"}/>
-              <MenuItem  insetChildren checked={values && values.indexOf('Tools') > -1} value={"Tools"} primaryText={"Tools"}/>
+              {
+                
+                this.props.itemsFilter.map((tag) => {
+                  return (
+                    <MenuItem checked={this.props.selectedTags.find((t) => {
+                       t.id === tag.id})}
+                       key={tag.id} value={tag.title} primaryText={tag.title}/>
+                  )
+                })
+              }
+              
           </SelectField>
             
            
@@ -101,7 +104,7 @@ import {
 const mapStateToProps = (state) => ({
   isLoading: state.items.isLoading,
   items: state.items.items,
-  tags: state.items.tags,
+  selectedTags: state.items.selectedTags,
   itemsFilter: state.items.itemsFilter,
   error: state.items.error
  });

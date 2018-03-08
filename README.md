@@ -17,5 +17,3 @@ This has been a very challenging project due mostly to a lack of fluency with re
 ## Authors
 Colin Matson-Jones
 
-## Awknowledgements
-Qingxin helped me with the filter function, there were several things that I just wasn't getting for what I had to do to make this work and she showed me what she had so I could get a functioning filter and better understand the process. As it stands now at the time of handing in part one I still have her code for that section of the project. 
